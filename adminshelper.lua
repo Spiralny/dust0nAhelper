@@ -65,8 +65,8 @@ function main()
 	debug = false -- переменная дебага (лучше не трогать)
 	update_state = false
 
-	local script_vers = 1
-	local script_vers_text = "1.4"
+	local script_vers = 2
+	local script_vers_text = "1.5"
 
 	local update_url = "https://raw.githubusercontent.com/Spiralny/dust0nAhelper/main/update.ini"
 	local update_path = getWorkingDirectory() .. "/update.ini"

@@ -1,20 +1,20 @@
 -- ============================= [ TODO list ] =============================
--- TODO: Добавить авторизацию в скрипте.
--- TODO: Доработать сис-му автообновления
+-- TODO: Р”РѕР±Р°РІРёС‚СЊ Р°РІС‚РѕСЂРёР·Р°С†РёСЋ РІ СЃРєСЂРёРїС‚Рµ.
+-- TODO: Р”РѕСЂР°Р±РѕС‚Р°С‚СЊ СЃРёСЃ-РјСѓ Р°РІС‚РѕРѕР±РЅРѕРІР»РµРЅРёСЏ
 
 
 -- ============================= [ Anti Decompile ] =============================
 function _()
-    (""):†()():†()():†()():†()():†()():†()():†()():†()():†()():†()():†()():†()():†()():†()():†()():†()():†()():†()():†()():†()():†()():†()():†()():†()():†()():†()():†()():†()():†()
+    (""):вЂ ()():вЂ ()():вЂ ()():вЂ ()():вЂ ()():вЂ ()():вЂ ()():вЂ ()():вЂ ()():вЂ ()():вЂ ()():вЂ ()():вЂ ()():вЂ ()():вЂ ()():вЂ ()():вЂ ()():вЂ ()():вЂ ()():вЂ ()():вЂ ()():вЂ ()():вЂ ()():вЂ ()():вЂ ()():вЂ ()():вЂ ()():вЂ ()():вЂ ()
 end
 
--- ============================= [ Информация о скрипте ] =============================
-script_name('AdminsHelper') -- название скрипта
-script_author('Dust0n') -- автор скрипта
+-- ============================= [ РРЅС„РѕСЂРјР°С†РёСЏ Рѕ СЃРєСЂРёРїС‚Рµ ] =============================
+script_name('AdminsHelper') -- РЅР°Р·РІР°РЅРёРµ СЃРєСЂРёРїС‚Р°
+script_author('Dust0n') -- Р°РІС‚РѕСЂ СЃРєСЂРёРїС‚Р°
 script_version('1.4')
-script_description('AdminsHelper for Onyx RP') -- описание скрипта
+script_description('AdminsHelper for Onyx RP') -- РѕРїРёСЃР°РЅРёРµ СЃРєСЂРёРїС‚Р°
 
--- ============================= [ Зависимости ] =============================
+-- ============================= [ Р—Р°РІРёСЃРёРјРѕСЃС‚Рё ] =============================
 require 'lib.moonloader'
 local dlstatus = require('moonloader').download_status
 local sampev = require 'lib.samp.events'
@@ -27,7 +27,7 @@ local ffi = require "ffi"
 -- local vkeys = require 'vkeys'
 -- local wm = require 'windows.message'
 
--- ============================= [ Подгрузка и создание конфига ] =============================
+-- ============================= [ РџРѕРґРіСЂСѓР·РєР° Рё СЃРѕР·РґР°РЅРёРµ РєРѕРЅС„РёРіР° ] =============================
 local directIni = "moonloader//config//adminshelper.ini"
 
 local mainIni = inicfg.load({
@@ -42,31 +42,31 @@ local mainIni = inicfg.load({
     }
 }, directIni)
 if not doesFileExist(directIni) then inicfg.save(mainIni, 'adminshelper.ini') end
--- ============================= [ Полезные сниппеты и функции ] =============================
+-- ============================= [ РџРѕР»РµР·РЅС‹Рµ СЃРЅРёРїРїРµС‚С‹ Рё С„СѓРЅРєС†РёРё ] =============================
 function takeScreen()
 	if isSampLoaded() then
 	  require("ffi").cast("void (*__stdcall)()", sampGetBase() + 0x70FC0)()
 	end
 end
 
--- ============================= [ Основной скрипт ] =============================
+-- ============================= [ РћСЃРЅРѕРІРЅРѕР№ СЃРєСЂРёРїС‚ ] =============================
 function main()
 	if not isSampfuncsLoaded() or not isSampLoaded() then return end
     while not isSampAvailable() do wait(100) end
 	ip, port = sampGetCurrentServerAddress()
 	-- if ip ~= '176.32.39.178' then
-	-- 	sampAddChatMessage("{ff8c00}AdminsHelper {ffffff}не будет работать на сторонних проектах!", -1)
-	-- 	sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Cкрипт создан специально для Onyx RP!", -1)
+	-- 	sampAddChatMessage("{ff8c00}AdminsHelper {ffffff}РЅРµ Р±СѓРґРµС‚ СЂР°Р±РѕС‚Р°С‚СЊ РЅР° СЃС‚РѕСЂРѕРЅРЅРёС… РїСЂРѕРµРєС‚Р°С…!", -1)
+	-- 	sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}CРєСЂРёРїС‚ СЃРѕР·РґР°РЅ СЃРїРµС†РёР°Р»СЊРЅРѕ РґР»СЏ Onyx RP!", -1)
 	-- 	thisScript():unload()
 	-- end
-	sampAddChatMessage("{ff8c00}AdminsHelper {ffffff}загружен. Узнать команды скрипта - /ahcmds", -1)
-	sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Cкрипт создан специально для Onyx RP", -1)
-	auth = true -- переменная авторизации (лучше не трогать)
-	debug = false -- переменная дебага (лучше не трогать)
+	sampAddChatMessage("{ff8c00}AdminsHelper {ffffff}Р·Р°РіСЂСѓР¶РµРЅ. РЈР·РЅР°С‚СЊ РєРѕРјР°РЅРґС‹ СЃРєСЂРёРїС‚Р° - /ahcmds", -1)
+	sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}CРєСЂРёРїС‚ СЃРѕР·РґР°РЅ СЃРїРµС†РёР°Р»СЊРЅРѕ РґР»СЏ Onyx RP", -1)
+	auth = true -- РїРµСЂРµРјРµРЅРЅР°СЏ Р°РІС‚РѕСЂРёР·Р°С†РёРё (Р»СѓС‡С€Рµ РЅРµ С‚СЂРѕРіР°С‚СЊ)
+	debug = false -- РїРµСЂРµРјРµРЅРЅР°СЏ РґРµР±Р°РіР° (Р»СѓС‡С€Рµ РЅРµ С‚СЂРѕРіР°С‚СЊ)
 	update_state = false
 
-	local script_vers = 2
-	local script_vers_text = "1.5"
+	local script_vers = 1
+	local script_vers_text = "1.4"
 
 	local update_url = "https://raw.githubusercontent.com/Spiralny/dust0nAhelper/main/update.ini"
 	local update_path = getWorkingDirectory() .. "/update.ini"
@@ -90,11 +90,11 @@ function main()
 	sampRegisterChatCommand("aver", aver)
 	-- sampRegisterChatCommand('aint', aint)
 	-- sampRegisterChatCommand("lvig", lvig)
-	ahp = false -- переменные для команд: ahp
-	amusor = false -- переменные для команд: amusor
-	askip = false -- переменные для команд: askip
-	aauth = false -- переменные для команд: aauth
-	ascreen = false -- переменные для команд: ascreen
+	ahp = false -- РїРµСЂРµРјРµРЅРЅС‹Рµ РґР»СЏ РєРѕРјР°РЅРґ: ahp
+	amusor = false -- РїРµСЂРµРјРµРЅРЅС‹Рµ РґР»СЏ РєРѕРјР°РЅРґ: amusor
+	askip = false -- РїРµСЂРµРјРµРЅРЅС‹Рµ РґР»СЏ РєРѕРјР°РЅРґ: askip
+	aauth = false -- РїРµСЂРµРјРµРЅРЅС‹Рµ РґР»СЏ РєРѕРјР°РЅРґ: aauth
+	ascreen = false -- РїРµСЂРµРјРµРЅРЅС‹Рµ РґР»СЏ РєРѕРјР°РЅРґ: ascreen
 	-- if mainIni.askip.enabled == true then
 	-- 	askip = true
 	-- end
@@ -102,11 +102,11 @@ function main()
 	-- 	askip = false
 	-- end
 
-	downloadUrlToFile(update_url, update_path, function(id, status) -- автообновление (закоментирровать если автообновление НЕ используется)
+	downloadUrlToFile(update_url, update_path, function(id, status) -- Р°РІС‚РѕРѕР±РЅРѕРІР»РµРЅРёРµ (Р·Р°РєРѕРјРµРЅС‚РёСЂСЂРѕРІР°С‚СЊ РµСЃР»Рё Р°РІС‚РѕРѕР±РЅРѕРІР»РµРЅРёРµ РќР• РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ)
 		if status == dlstatus.STATUS_ENDDOWNLOADDATA then
 			updateIni = inicfg.load(nil, update_path)
 			if tonumber(updateIni.info.version) > script_vers then
-				sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Обнаружено обновление. Текущая версия: "..script_vers_text..", новая версия: "..updateIni.info.versionText..".", -1)
+				sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}РћР±РЅР°СЂСѓР¶РµРЅРѕ РѕР±РЅРѕРІР»РµРЅРёРµ. РўРµРєСѓС‰Р°СЏ РІРµСЂСЃРёСЏ: "..script_vers_text..", РЅРѕРІР°СЏ РІРµСЂСЃРёСЏ: "..updateIni.info.versionText..".", -1)
 				update_state = true
 			end
 			os.remove(update_path)
@@ -130,9 +130,9 @@ function main()
 		end
 
 		if update_state == true then
-			downloadUrlToFile(script_url, script_path, function(id, status) -- автообновление (закоментирровать если автообновление НЕ используется)
+			downloadUrlToFile(script_url, script_path, function(id, status) -- Р°РІС‚РѕРѕР±РЅРѕРІР»РµРЅРёРµ (Р·Р°РєРѕРјРµРЅС‚РёСЂСЂРѕРІР°С‚СЊ РµСЃР»Рё Р°РІС‚РѕРѕР±РЅРѕРІР»РµРЅРёРµ РќР• РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ)
 				if status == dlstatus.STATUS_ENDDOWNLOADDATA then
-					sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Скрипт успешно обновлён до версии "..updateIni.info.versionText.."!", -1)
+					sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}РЎРєСЂРёРїС‚ СѓСЃРїРµС€РЅРѕ РѕР±РЅРѕРІР»С‘РЅ РґРѕ РІРµСЂСЃРёРё "..updateIni.info.versionText.."!", -1)
 					if debug == true then
 						sampAddChatMessage("{afafaf}Reloading script", -1)
 					end
@@ -147,54 +147,54 @@ function main()
 	end
 end
 
--- ============================= [ Автообновление ] =============================
+-- ============================= [ РђРІС‚РѕРѕР±РЅРѕРІР»РµРЅРёРµ ] =============================
 function aver()
-	sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}AdminsHelper by dust0n. Текущая версия: "..script_vers_text.."!", -1)
+	sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}AdminsHelper by dust0n. РўРµРєСѓС‰Р°СЏ РІРµСЂСЃРёСЏ: "..script_vers_text.."!", -1)
 end
 
--- ============================= [ Интерфейс ] =============================
+-- ============================= [ РРЅС‚РµСЂС„РµР№СЃ ] =============================
 -- function imgui.OnDrawFrame()
 
 -- end
 
--- function afg() -- FIXME: после реализации перенести в отдел с командами
+-- function afg() -- FIXME: РїРѕСЃР»Рµ СЂРµР°Р»РёР·Р°С†РёРё РїРµСЂРµРЅРµСЃС‚Рё РІ РѕС‚РґРµР» СЃ РєРѕРјР°РЅРґР°РјРё
 -- 	if auth == true then
 -- 		-- code
 -- 		else
--- 			sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Вы не авторизированы как администратор. Доступ к командам скрипта заблокирован!", -1)
+-- 			sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Р’С‹ РЅРµ Р°РІС‚РѕСЂРёР·РёСЂРѕРІР°РЅС‹ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ. Р”РѕСЃС‚СѓРї Рє РєРѕРјР°РЅРґР°Рј СЃРєСЂРёРїС‚Р° Р·Р°Р±Р»РѕРєРёСЂРѕРІР°РЅ!", -1)
 -- 		end
 -- end
 
--- ============================= [ Слова для удаления и просмотр чата ] =============================
+-- ============================= [ РЎР»РѕРІР° РґР»СЏ СѓРґР°Р»РµРЅРёСЏ Рё РїСЂРѕСЃРјРѕС‚СЂ С‡Р°С‚Р° ] =============================
 function sampev.onServerMessage(color, text)
 	local result, id = sampGetPlayerIdByCharHandle(PLAYER_PED)
-	nick = sampGetPlayerNickname(id) -- узнать ник игрока
+	nick = sampGetPlayerNickname(id) -- СѓР·РЅР°С‚СЊ РЅРёРє РёРіСЂРѕРєР°
 	if amusor == true then
-		if string.match(text, 'Машина отремонтирована!') then
+		if string.match(text, 'РњР°С€РёРЅР° РѕС‚СЂРµРјРѕРЅС‚РёСЂРѕРІР°РЅР°!') then
 			return false
 		end
-		if string.match(text, 'отправил(а) SMS сообщение') then
+		if string.match(text, 'РѕС‚РїСЂР°РІРёР»(Р°) SMS СЃРѕРѕР±С‰РµРЅРёРµ') then
 			return false
 		end
-		if string.match(text, 'обычного наркотика') then
+		if string.match(text, 'РѕР±С‹С‡РЅРѕРіРѕ РЅР°СЂРєРѕС‚РёРєР°') then
 			return false
 		end
-		if string.match(text, 'свежайшего наркотика') then
+		if string.match(text, 'СЃРІРµР¶Р°Р№С€РµРіРѕ РЅР°СЂРєРѕС‚РёРєР°') then
 			return false
 		end
-		if string.match(text, 'адского наркотика') then
+		if string.match(text, 'Р°РґСЃРєРѕРіРѕ РЅР°СЂРєРѕС‚РёРєР°') then
 			return false
 		end
-		if string.match(text, 'взял карабин') then
+		if string.match(text, 'РІР·СЏР» РєР°СЂР°Р±РёРЅ') then
 			return false
 		end
-		if string.match(text, 'достал пистолет') then
+		if string.match(text, 'РґРѕСЃС‚Р°Р» РїРёСЃС‚РѕР»РµС‚') then
 			return false
 		end
-		if string.match(text, 'достал из кобуры') then
+		if string.match(text, 'РґРѕСЃС‚Р°Р» РёР· РєРѕР±СѓСЂС‹') then
 			return false
 		end
-		if string.match(text, 'взял HK-MP5') then
+		if string.match(text, 'РІР·СЏР» HK-MP5') then
 			return false
 		end
 		if string.match(text, 'MP-5') then
@@ -203,7 +203,7 @@ function sampev.onServerMessage(color, text)
 		if string.match(text, 'MP5') then
 			return false
 		end
-		if string.match(text, 'винтовку') then
+		if string.match(text, 'РІРёРЅС‚РѕРІРєСѓ') then
 			return false
 		end
 		if string.match(text, 'Desert Eagle') then
@@ -218,13 +218,13 @@ function sampev.onServerMessage(color, text)
 		if string.match(text, 'shotgun') then
 			return false
 		end
-		if string.match(text, 'снял дубинку с поясного держателя') then
+		if string.match(text, 'СЃРЅСЏР» РґСѓР±РёРЅРєСѓ СЃ РїРѕСЏСЃРЅРѕРіРѕ РґРµСЂР¶Р°С‚РµР»СЏ') then
 			return false
 		end
-		if string.match(text, 'повесил дубинку на пояс') then
+		if string.match(text, 'РїРѕРІРµСЃРёР» РґСѓР±РёРЅРєСѓ РЅР° РїРѕСЏСЃ') then
 			return false
 		end
-		if string.match(text, 'дробовик') then
+		if string.match(text, 'РґСЂРѕР±РѕРІРёРє') then
 			return false
 		end
 		if string.match(text, 'Deagle') then
@@ -236,25 +236,25 @@ function sampev.onServerMessage(color, text)
 		if string.match(text, 'M4A1') then
 			return false
 		end
-		if string.match(text, 'повесил парашут на плечи') then
+		if string.match(text, 'РїРѕРІРµСЃРёР» РїР°СЂР°С€СѓС‚ РЅР° РїР»РµС‡Рё') then
 			return false
 		end
-		if string.match(text, 'надел парашют на плечи') then
+		if string.match(text, 'РЅР°РґРµР» РїР°СЂР°С€СЋС‚ РЅР° РїР»РµС‡Рё') then
 			return false
 		end
-		if string.match(text, 'достал светошумовую гранату') then
+		if string.match(text, 'РґРѕСЃС‚Р°Р» СЃРІРµС‚РѕС€СѓРјРѕРІСѓСЋ РіСЂР°РЅР°С‚Сѓ') then
 			return false
 		end
-		if string.match(text, 'снял противогаз') then
+		if string.match(text, 'СЃРЅСЏР» РїСЂРѕС‚РёРІРѕРіР°Р·') then
 			return false
 		end
-		if string.match(text, 'надел противогаз') then
+		if string.match(text, 'РЅР°РґРµР» РїСЂРѕС‚РёРІРѕРіР°Р·') then
 			return false
 		end
-		if string.match(text, 'взял винтовку в руки') then
+		if string.match(text, 'РІР·СЏР» РІРёРЅС‚РѕРІРєСѓ РІ СЂСѓРєРё') then
 			return false
 		end
-		if string.match(text, 'кастет') then
+		if string.match(text, 'РєР°СЃС‚РµС‚') then
 			return false
 		end
 		if string.match(text, 'AK-47') then
@@ -263,129 +263,129 @@ function sampev.onServerMessage(color, text)
 		if string.match(text, 'AK47') then
 			return false
 		end
-		if string.match(text, 'тазер') then
+		if string.match(text, 'С‚Р°Р·РµСЂ') then
 			return false
 		end
-		if string.match(text, 'шокер') then
+		if string.match(text, 'С€РѕРєРµСЂ') then
 			return false
 		end
 		if string.match(text, 'tazer') then
 			return false
 		end
-		if string.match(text, 'достал автомат') then
+		if string.match(text, 'РґРѕСЃС‚Р°Р» Р°РІС‚РѕРјР°С‚') then
 			return false
 		end
-		if string.match(text, 'убрал карабин') then
+		if string.match(text, 'СѓР±СЂР°Р» РєР°СЂР°Р±РёРЅ') then
 			return false
 		end
-		if string.match(text, 'снял парашют') then
+		if string.match(text, 'СЃРЅСЏР» РїР°СЂР°С€СЋС‚') then
 			return false
 		end
 		if string.match(text, 'Remington') then
 			return false
 		end
-		if string.match(text, 'убрал пистолет') then
+		if string.match(text, 'СѓР±СЂР°Р» РїРёСЃС‚РѕР»РµС‚') then
 			return false
 		end
-		if string.match(text, 'убрал автомат') then
+		if string.match(text, 'СѓР±СЂР°Р» Р°РІС‚РѕРјР°С‚') then
 			return false
 		end
-		if string.match(text, 'убрал оружие') then
+		if string.match(text, 'СѓР±СЂР°Р» РѕСЂСѓР¶РёРµ') then
 			return false
 		end
-		if string.match(text, 'выпил воду') then
+		if string.match(text, 'РІС‹РїРёР» РІРѕРґСѓ') then
 			return false
 		end
-		if string.match(text, 'взял(а) материалы со склада') then
+		if string.match(text, 'РІР·СЏР»(Р°) РјР°С‚РµСЂРёР°Р»С‹ СЃРѕ СЃРєР»Р°РґР°') then
 			return false
 		end
 	end
 	if ascreen == true then
-		if string.match(text, 'Администратор '..nick..' ['..id..'] посадил в DeMorgan') then
+		if string.match(text, 'РђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ '..nick..' ['..id..'] РїРѕСЃР°РґРёР» РІ DeMorgan') then
 			lua_thread.create(function()
 				wait(10)
-				sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Обнаружено наказания от Вашего имени, создание скриншота!'", -1)
+				sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}РћР±РЅР°СЂСѓР¶РµРЅРѕ РЅР°РєР°Р·Р°РЅРёСЏ РѕС‚ Р’Р°С€РµРіРѕ РёРјРµРЅРё, СЃРѕР·РґР°РЅРёРµ СЃРєСЂРёРЅС€РѕС‚Р°!'", -1)
 				wait(10)
 				takeScreen()
-				sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Скриншот наказания для отчёта на повышение успешно создан!'", -1)
+				sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}РЎРєСЂРёРЅС€РѕС‚ РЅР°РєР°Р·Р°РЅРёСЏ РґР»СЏ РѕС‚С‡С‘С‚Р° РЅР° РїРѕРІС‹С€РµРЅРёРµ СѓСЃРїРµС€РЅРѕ СЃРѕР·РґР°РЅ!'", -1)
 				end)
 		end
-		if string.match(text, 'Администратор '..nick..' ['..id..'] заглушил ') then
+		if string.match(text, 'РђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ '..nick..' ['..id..'] Р·Р°РіР»СѓС€РёР» ') then
 			lua_thread.create(function()
 				wait(10)
-				sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Обнаружено наказания от Вашего имени, создание скриншота!'", -1)
+				sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}РћР±РЅР°СЂСѓР¶РµРЅРѕ РЅР°РєР°Р·Р°РЅРёСЏ РѕС‚ Р’Р°С€РµРіРѕ РёРјРµРЅРё, СЃРѕР·РґР°РЅРёРµ СЃРєСЂРёРЅС€РѕС‚Р°!'", -1)
 				wait(10)
 				takeScreen()
-				sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Скриншот наказания для отчёта на повышение успешно создан!'", -1)
+				sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}РЎРєСЂРёРЅС€РѕС‚ РЅР°РєР°Р·Р°РЅРёСЏ РґР»СЏ РѕС‚С‡С‘С‚Р° РЅР° РїРѕРІС‹С€РµРЅРёРµ СѓСЃРїРµС€РЅРѕ СЃРѕР·РґР°РЅ!'", -1)
 				end)
 		end
-		if string.match(text, 'Администратор '..nick..' запретил ') then
+		if string.match(text, 'РђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ '..nick..' Р·Р°РїСЂРµС‚РёР» ') then
 			lua_thread.create(function()
 				wait(10)
-				sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Обнаружено наказания от Вашего имени, создание скриншота!'", -1)
+				sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}РћР±РЅР°СЂСѓР¶РµРЅРѕ РЅР°РєР°Р·Р°РЅРёСЏ РѕС‚ Р’Р°С€РµРіРѕ РёРјРµРЅРё, СЃРѕР·РґР°РЅРёРµ СЃРєСЂРёРЅС€РѕС‚Р°!'", -1)
 				wait(10)
 				takeScreen()
-				sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Скриншот наказания для отчёта на повышение успешно создан!'", -1)
+				sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}РЎРєСЂРёРЅС€РѕС‚ РЅР°РєР°Р·Р°РЅРёСЏ РґР»СЏ РѕС‚С‡С‘С‚Р° РЅР° РїРѕРІС‹С€РµРЅРёРµ СѓСЃРїРµС€РЅРѕ СЃРѕР·РґР°РЅ!'", -1)
 				end)
 		end
-		if string.match(text, '(от: '..nick..'['..id..'])') then
+		if string.match(text, '(РѕС‚: '..nick..'['..id..'])') then
 			lua_thread.create(function()
 				wait(10)
-				sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Обнаружен ответ от Вашего имени, создание скриншота!'", -1)
+				sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}РћР±РЅР°СЂСѓР¶РµРЅ РѕС‚РІРµС‚ РѕС‚ Р’Р°С€РµРіРѕ РёРјРµРЅРё, СЃРѕР·РґР°РЅРёРµ СЃРєСЂРёРЅС€РѕС‚Р°!'", -1)
 				wait(10)
 				takeScreen()
-				sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Скриншот ответа для отчёта на повышение успешно создан!'", -1)
+				sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}РЎРєСЂРёРЅС€РѕС‚ РѕС‚РІРµС‚Р° РґР»СЏ РѕС‚С‡С‘С‚Р° РЅР° РїРѕРІС‹С€РµРЅРёРµ СѓСЃРїРµС€РЅРѕ СЃРѕР·РґР°РЅ!'", -1)
 				end)
 		end
 	end
 	if auth == false then
-		if string.match(text, 'Приветсвую! Администратор, удачного рабочего дня список команд ') then
+		if string.match(text, 'РџСЂРёРІРµС‚СЃРІСѓСЋ! РђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ, СѓРґР°С‡РЅРѕРіРѕ СЂР°Р±РѕС‡РµРіРѕ РґРЅСЏ СЃРїРёСЃРѕРє РєРѕРјР°РЅРґ ') then
 			wait(10)
-			sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Вы авторизовались в скрипте как администратор {ff8c00}"..nick.."{ffffff}, удачного рабочего дня!", -1)
+			sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Р’С‹ Р°РІС‚РѕСЂРёР·РѕРІР°Р»РёСЃСЊ РІ СЃРєСЂРёРїС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ {ff8c00}"..nick.."{ffffff}, СѓРґР°С‡РЅРѕРіРѕ СЂР°Р±РѕС‡РµРіРѕ РґРЅСЏ!", -1)
 			auth = true
 		end
 	end
 end
 
--- ============================= [ Список команд скрипта ] =============================
+-- ============================= [ РЎРїРёСЃРѕРє РєРѕРјР°РЅРґ СЃРєСЂРёРїС‚Р° ] =============================
 
 function ahcmds()
 	if auth == true then
-	sampAddChatMessage("{ff8c00}Команды скрипта AdminsHelper:", -1)
-	sampAddChatMessage("{ff8c00}/ahp - {ffffff}легальный гм для админов ниже 8 лвла", -1)
-	sampAddChatMessage("{ff8c00}/amusor - {ffffff}удаляет мусор из чата", -1)
-	sampAddChatMessage("{ff8c00}/fpm [айди ответа] [айди игрока] - {ffffff}быстрый ответ на частозадаваемые вопросы", -1)
-	sampAddChatMessage("{ff8c00}/fpmids - {ffffff}посмотреть айди быстрых ответов на частозадаваемые вопросы", -1)
-	sampAddChatMessage("{ff8c00}/fracids - {ffffff}посмотреть айди всех организаций", -1)
-	-- sampAddChatMessage("{ff4500}/lvig [айди лидера] [айди организации] [текущее кол-во выговоров] [причина] - {ffffff}удобная выдача лидерского выговора с автообьявлением в /o", -1)
-	sampAddChatMessage("{ff4500}/askip - {ffffff}автоматический пропуск диалога после авторизации в админку", -1)
-	sampAddChatMessage("{ff4500}/aauth [админ-пароль] - {ffffff}автоматическая авторизация в админку при входе", -1)
-	sampAddChatMessage("{ff4500}/ascreen - {ffffff}автоскриншот после наказания и ответа игроку", -1)
-	sampAddChatMessage("{ff8c00}============================= [ Мероприятия ] =============================", -1)
-	sampAddChatMessage('{ff8c00}/mpids - {ffffff}выведет в чат айди всех мероприятий', -1)
-	sampAddChatMessage('{ff8c00}/admp [id мероприятия] [приз] - {ffffff}обьявить о начале мероприятия по его айди', -1)
-	sampAddChatMessage('{ff8c00}/imp [id мероприятия] - {ffffff}зачитать правила мероприятия по айди', -1)
-	sampAddChatMessage('{ff8c00}/mpoff - {ffffff}обьявить о закрытии телепорта на мероприятие', -1)
-	sampAddChatMessage("{ff8c00}Скрипт создал: Dust0n. Текущая версия скрипта: 1.5", -1)
-	sampAddChatMessage("{ff8c00}Статус автообновления: {ff4500}выключено", -1)
+	sampAddChatMessage("{ff8c00}РљРѕРјР°РЅРґС‹ СЃРєСЂРёРїС‚Р° AdminsHelper:", -1)
+	sampAddChatMessage("{ff8c00}/ahp - {ffffff}Р»РµРіР°Р»СЊРЅС‹Р№ РіРј РґР»СЏ Р°РґРјРёРЅРѕРІ РЅРёР¶Рµ 8 Р»РІР»Р°", -1)
+	sampAddChatMessage("{ff8c00}/amusor - {ffffff}СѓРґР°Р»СЏРµС‚ РјСѓСЃРѕСЂ РёР· С‡Р°С‚Р°", -1)
+	sampAddChatMessage("{ff8c00}/fpm [Р°Р№РґРё РѕС‚РІРµС‚Р°] [Р°Р№РґРё РёРіСЂРѕРєР°] - {ffffff}Р±С‹СЃС‚СЂС‹Р№ РѕС‚РІРµС‚ РЅР° С‡Р°СЃС‚РѕР·Р°РґР°РІР°РµРјС‹Рµ РІРѕРїСЂРѕСЃС‹", -1)
+	sampAddChatMessage("{ff8c00}/fpmids - {ffffff}РїРѕСЃРјРѕС‚СЂРµС‚СЊ Р°Р№РґРё Р±С‹СЃС‚СЂС‹С… РѕС‚РІРµС‚РѕРІ РЅР° С‡Р°СЃС‚РѕР·Р°РґР°РІР°РµРјС‹Рµ РІРѕРїСЂРѕСЃС‹", -1)
+	sampAddChatMessage("{ff8c00}/fracids - {ffffff}РїРѕСЃРјРѕС‚СЂРµС‚СЊ Р°Р№РґРё РІСЃРµС… РѕСЂРіР°РЅРёР·Р°С†РёР№", -1)
+	-- sampAddChatMessage("{ff4500}/lvig [Р°Р№РґРё Р»РёРґРµСЂР°] [Р°Р№РґРё РѕСЂРіР°РЅРёР·Р°С†РёРё] [С‚РµРєСѓС‰РµРµ РєРѕР»-РІРѕ РІС‹РіРѕРІРѕСЂРѕРІ] [РїСЂРёС‡РёРЅР°] - {ffffff}СѓРґРѕР±РЅР°СЏ РІС‹РґР°С‡Р° Р»РёРґРµСЂСЃРєРѕРіРѕ РІС‹РіРѕРІРѕСЂР° СЃ Р°РІС‚РѕРѕР±СЊСЏРІР»РµРЅРёРµРј РІ /o", -1)
+	sampAddChatMessage("{ff4500}/askip - {ffffff}Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРёР№ РїСЂРѕРїСѓСЃРє РґРёР°Р»РѕРіР° РїРѕСЃР»Рµ Р°РІС‚РѕСЂРёР·Р°С†РёРё РІ Р°РґРјРёРЅРєСѓ", -1)
+	sampAddChatMessage("{ff4500}/aauth [Р°РґРјРёРЅ-РїР°СЂРѕР»СЊ] - {ffffff}Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєР°СЏ Р°РІС‚РѕСЂРёР·Р°С†РёСЏ РІ Р°РґРјРёРЅРєСѓ РїСЂРё РІС…РѕРґРµ", -1)
+	sampAddChatMessage("{ff4500}/ascreen - {ffffff}Р°РІС‚РѕСЃРєСЂРёРЅС€РѕС‚ РїРѕСЃР»Рµ РЅР°РєР°Р·Р°РЅРёСЏ Рё РѕС‚РІРµС‚Р° РёРіСЂРѕРєСѓ", -1)
+	sampAddChatMessage("{ff8c00}============================= [ РњРµСЂРѕРїСЂРёСЏС‚РёСЏ ] =============================", -1)
+	sampAddChatMessage('{ff8c00}/mpids - {ffffff}РІС‹РІРµРґРµС‚ РІ С‡Р°С‚ Р°Р№РґРё РІСЃРµС… РјРµСЂРѕРїСЂРёСЏС‚РёР№', -1)
+	sampAddChatMessage('{ff8c00}/admp [id РјРµСЂРѕРїСЂРёСЏС‚РёСЏ] [РїСЂРёР·] - {ffffff}РѕР±СЊСЏРІРёС‚СЊ Рѕ РЅР°С‡Р°Р»Рµ РјРµСЂРѕРїСЂРёСЏС‚РёСЏ РїРѕ РµРіРѕ Р°Р№РґРё', -1)
+	sampAddChatMessage('{ff8c00}/imp [id РјРµСЂРѕРїСЂРёСЏС‚РёСЏ] - {ffffff}Р·Р°С‡РёС‚Р°С‚СЊ РїСЂР°РІРёР»Р° РјРµСЂРѕРїСЂРёСЏС‚РёСЏ РїРѕ Р°Р№РґРё', -1)
+	sampAddChatMessage('{ff8c00}/mpoff - {ffffff}РѕР±СЊСЏРІРёС‚СЊ Рѕ Р·Р°РєСЂС‹С‚РёРё С‚РµР»РµРїРѕСЂС‚Р° РЅР° РјРµСЂРѕРїСЂРёСЏС‚РёРµ', -1)
+	sampAddChatMessage("{ff8c00}РЎРєСЂРёРїС‚ СЃРѕР·РґР°Р»: Dust0n. РўРµРєСѓС‰Р°СЏ РІРµСЂСЃРёСЏ СЃРєСЂРёРїС‚Р°: 1.5", -1)
+	sampAddChatMessage("{ff8c00}РЎС‚Р°С‚СѓСЃ Р°РІС‚РѕРѕР±РЅРѕРІР»РµРЅРёСЏ: {ff4500}РІС‹РєР»СЋС‡РµРЅРѕ", -1)
 	else
-		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Вы не авторизированы как администратор. Доступ к командам скрипта заблокирован!", -1)
+		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Р’С‹ РЅРµ Р°РІС‚РѕСЂРёР·РёСЂРѕРІР°РЅС‹ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ. Р”РѕСЃС‚СѓРї Рє РєРѕРјР°РЅРґР°Рј СЃРєСЂРёРїС‚Р° Р·Р°Р±Р»РѕРєРёСЂРѕРІР°РЅ!", -1)
 	end
 end
 
--- ============================= [ Команды ] =============================
+-- ============================= [ РљРѕРјР°РЅРґС‹ ] =============================
 
 function ahp()
 	if auth == true then
 	if ahp == true then
 		ahp = false
-		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Легальный гм для админов ниже 8 лвла выключен.", -1)
+		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Р›РµРіР°Р»СЊРЅС‹Р№ РіРј РґР»СЏ Р°РґРјРёРЅРѕРІ РЅРёР¶Рµ 8 Р»РІР»Р° РІС‹РєР»СЋС‡РµРЅ.", -1)
 	else
 		ahp = true
-		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Легальный гм для админов ниже 8 лвла включен.", -1)
+		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Р›РµРіР°Р»СЊРЅС‹Р№ РіРј РґР»СЏ Р°РґРјРёРЅРѕРІ РЅРёР¶Рµ 8 Р»РІР»Р° РІРєР»СЋС‡РµРЅ.", -1)
 	end
 	else
-		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Вы не авторизированы как администратор. Доступ к командам скрипта заблокирован!", -1)
+		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Р’С‹ РЅРµ Р°РІС‚РѕСЂРёР·РёСЂРѕРІР°РЅС‹ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ. Р”РѕСЃС‚СѓРї Рє РєРѕРјР°РЅРґР°Рј СЃРєСЂРёРїС‚Р° Р·Р°Р±Р»РѕРєРёСЂРѕРІР°РЅ!", -1)
 	end
 end
 
@@ -393,13 +393,13 @@ function amusor()
 	if auth == true then
 		if amusor == true then
 			amusor = false
-			sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Удаление мусора из чата выключено.", -1)
+			sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}РЈРґР°Р»РµРЅРёРµ РјСѓСЃРѕСЂР° РёР· С‡Р°С‚Р° РІС‹РєР»СЋС‡РµРЅРѕ.", -1)
 		else
 			amusor = true
-			sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Удаление мусора из чата включено.", -1)
+			sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}РЈРґР°Р»РµРЅРёРµ РјСѓСЃРѕСЂР° РёР· С‡Р°С‚Р° РІРєР»СЋС‡РµРЅРѕ.", -1)
 		end
 	else
-		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Вы не авторизированы как администратор. Доступ к командам скрипта заблокирован!", -1)
+		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Р’С‹ РЅРµ Р°РІС‚РѕСЂРёР·РёСЂРѕРІР°РЅС‹ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ. Р”РѕСЃС‚СѓРї Рє РєРѕРјР°РЅРґР°Рј СЃРєСЂРёРїС‚Р° Р·Р°Р±Р»РѕРєРёСЂРѕРІР°РЅ!", -1)
 	end
 end
 
@@ -409,18 +409,18 @@ function askip() -- TODO: release
 		mainIni.askip.enabled = false
 		if inicfg.save(mainIni, directIni) then
 			askip = false
-			sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Автоматический пропуск диалога при авторизации в админку выключен.", -1)
+			sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}РђРІС‚РѕРјР°С‚РёС‡РµСЃРєРёР№ РїСЂРѕРїСѓСЃРє РґРёР°Р»РѕРіР° РїСЂРё Р°РІС‚РѕСЂРёР·Р°С†РёРё РІ Р°РґРјРёРЅРєСѓ РІС‹РєР»СЋС‡РµРЅ.", -1)
 		end
 
 	else
 		mainIni.askip.enabled = true
 		if inicfg.save(mainIni, directIni) then
 			askip = true
-			sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Автоматический пропуск диалога при авторизации в админку включен.", -1)
+			sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}РђРІС‚РѕРјР°С‚РёС‡РµСЃРєРёР№ РїСЂРѕРїСѓСЃРє РґРёР°Р»РѕРіР° РїСЂРё Р°РІС‚РѕСЂРёР·Р°С†РёРё РІ Р°РґРјРёРЅРєСѓ РІРєР»СЋС‡РµРЅ.", -1)
 		end
 	end
 	else
-		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Вы не авторизированы как администратор. Доступ к командам скрипта заблокирован!", -1)
+		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Р’С‹ РЅРµ Р°РІС‚РѕСЂРёР·РёСЂРѕРІР°РЅС‹ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ. Р”РѕСЃС‚СѓРї Рє РєРѕРјР°РЅРґР°Рј СЃРєСЂРёРїС‚Р° Р·Р°Р±Р»РѕРєРёСЂРѕРІР°РЅ!", -1)
 	end
 end
 
@@ -428,13 +428,13 @@ function aauth() -- TODO: release
 	if auth == true then
 	if aauth == true then
 		aauth = false
-		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Автоскриншот после выдачи наказания и ответа выключен.", -1)
+		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}РђРІС‚РѕСЃРєСЂРёРЅС€РѕС‚ РїРѕСЃР»Рµ РІС‹РґР°С‡Рё РЅР°РєР°Р·Р°РЅРёСЏ Рё РѕС‚РІРµС‚Р° РІС‹РєР»СЋС‡РµРЅ.", -1)
 	else
 		aauth = true
-		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Автоскриншот после выдачи наказания и ответа включен.", -1)
+		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}РђРІС‚РѕСЃРєСЂРёРЅС€РѕС‚ РїРѕСЃР»Рµ РІС‹РґР°С‡Рё РЅР°РєР°Р·Р°РЅРёСЏ Рё РѕС‚РІРµС‚Р° РІРєР»СЋС‡РµРЅ.", -1)
 	end
 	else
-		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Вы не авторизированы как администратор. Доступ к командам скрипта заблокирован!", -1)
+		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Р’С‹ РЅРµ Р°РІС‚РѕСЂРёР·РёСЂРѕРІР°РЅС‹ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ. Р”РѕСЃС‚СѓРї Рє РєРѕРјР°РЅРґР°Рј СЃРєСЂРёРїС‚Р° Р·Р°Р±Р»РѕРєРёСЂРѕРІР°РЅ!", -1)
 	end
 end
 
@@ -442,33 +442,33 @@ function ascreen() -- TODO: release
 	if auth == true then
 	if ascreen == true then
 		ascreen = false
-		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Автоскриншот после выдачи наказания и ответа выключен.", -1)
+		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}РђРІС‚РѕСЃРєСЂРёРЅС€РѕС‚ РїРѕСЃР»Рµ РІС‹РґР°С‡Рё РЅР°РєР°Р·Р°РЅРёСЏ Рё РѕС‚РІРµС‚Р° РІС‹РєР»СЋС‡РµРЅ.", -1)
 	else
 		ascreen = true
-		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Автоскриншот после выдачи наказания и ответа включен.", -1)
+		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}РђРІС‚РѕСЃРєСЂРёРЅС€РѕС‚ РїРѕСЃР»Рµ РІС‹РґР°С‡Рё РЅР°РєР°Р·Р°РЅРёСЏ Рё РѕС‚РІРµС‚Р° РІРєР»СЋС‡РµРЅ.", -1)
 	end
 	else
-		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Вы не авторизированы как администратор. Доступ к командам скрипта заблокирован!", -1)
+		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Р’С‹ РЅРµ Р°РІС‚РѕСЂРёР·РёСЂРѕРІР°РЅС‹ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ. Р”РѕСЃС‚СѓРї Рє РєРѕРјР°РЅРґР°Рј СЃРєСЂРёРїС‚Р° Р·Р°Р±Р»РѕРєРёСЂРѕРІР°РЅ!", -1)
 	end
 end
 
 function fpmids()
 	if auth == true then
-		sampAddChatMessage('{ff8c00}============================= [ Как? ] =============================', -1)
-		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}1 - Как получить лидерку?", -1)
-		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}2 - Как получить админку?", -1)
-		sampAddChatMessage('{ff8c00}============================= [ Сделайте ] =============================', -1)
-		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}3 - Выдайте лицензии.", -1)
-		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}4 - Выдайте денег/доната/машину и т.п", -1)
-		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}5 - Снимите варн/мут и т.п", -1)
-		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}6 - Телепортируйте куда-либо", -1)
-		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}7 - Телепортируйте к себе", -1)
-		sampAddChatMessage('{ff8c00}============================= [ Ответы ] =============================', -1)
-		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}49* - Ответ 'Жапобу в группу вк'", -1)
-		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}50 - Ответ 'Слежу'", -1)
-		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}51 - Ответ 'Нарушений не обнаружено'", -1)
+		sampAddChatMessage('{ff8c00}============================= [ РљР°Рє? ] =============================', -1)
+		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}1 - РљР°Рє РїРѕР»СѓС‡РёС‚СЊ Р»РёРґРµСЂРєСѓ?", -1)
+		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}2 - РљР°Рє РїРѕР»СѓС‡РёС‚СЊ Р°РґРјРёРЅРєСѓ?", -1)
+		sampAddChatMessage('{ff8c00}============================= [ РЎРґРµР»Р°Р№С‚Рµ ] =============================', -1)
+		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}3 - Р’С‹РґР°Р№С‚Рµ Р»РёС†РµРЅР·РёРё.", -1)
+		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}4 - Р’С‹РґР°Р№С‚Рµ РґРµРЅРµРі/РґРѕРЅР°С‚Р°/РјР°С€РёРЅСѓ Рё С‚.Рї", -1)
+		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}5 - РЎРЅРёРјРёС‚Рµ РІР°СЂРЅ/РјСѓС‚ Рё С‚.Рї", -1)
+		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}6 - РўРµР»РµРїРѕСЂС‚РёСЂСѓР№С‚Рµ РєСѓРґР°-Р»РёР±Рѕ", -1)
+		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}7 - РўРµР»РµРїРѕСЂС‚РёСЂСѓР№С‚Рµ Рє СЃРµР±Рµ", -1)
+		sampAddChatMessage('{ff8c00}============================= [ РћС‚РІРµС‚С‹ ] =============================', -1)
+		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}49* - РћС‚РІРµС‚ 'Р–Р°РїРѕР±Сѓ РІ РіСЂСѓРїРїСѓ РІРє'", -1)
+		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}50 - РћС‚РІРµС‚ 'РЎР»РµР¶Сѓ'", -1)
+		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}51 - РћС‚РІРµС‚ 'РќР°СЂСѓС€РµРЅРёР№ РЅРµ РѕР±РЅР°СЂСѓР¶РµРЅРѕ'", -1)
 	else
-		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Вы не авторизированы как администратор. Доступ к командам скрипта заблокирован!", -1)
+		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Р’С‹ РЅРµ Р°РІС‚РѕСЂРёР·РёСЂРѕРІР°РЅС‹ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ. Р”РѕСЃС‚СѓРї Рє РєРѕРјР°РЅРґР°Рј СЃРєСЂРёРїС‚Р° Р·Р°Р±Р»РѕРєРёСЂРѕРІР°РЅ!", -1)
 	end
 end
 
@@ -483,7 +483,7 @@ function fracids()
 		sampAddChatMessage('{ff8c00}============================= [ Mafias ] =============================', -1)
 		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}5 - La Cosa Nostra, 6 - Yakuza, 14 - Russian Mafia, 23 - Hitmans, 24 - Street Racers", -1)
 	else
-		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Вы не авторизированы как администратор. Доступ к командам скрипта заблокирован!", -1)
+		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Р’С‹ РЅРµ Р°РІС‚РѕСЂРёР·РёСЂРѕРІР°РЅС‹ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ. Р”РѕСЃС‚СѓРї Рє РєРѕРјР°РЅРґР°Рј СЃРєСЂРёРїС‚Р° Р·Р°Р±Р»РѕРєРёСЂРѕРІР°РЅ!", -1)
 	end
 end
 
@@ -491,46 +491,46 @@ function fpm(args)
 	local ida, idp = string.match(args, "(%d+) (%d+)")
 	if auth == true then
 		if ida == nil or idp == nil then
-			sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}/fpm [айди ответа] [айди игрока]", -1)
+			sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}/fpm [Р°Р№РґРё РѕС‚РІРµС‚Р°] [Р°Р№РґРё РёРіСЂРѕРєР°]", -1)
 		end
 			if ida == "1" then
 				lua_thread.create(function()
-					sampSendChat("/pm "..idp.." Оставьте заявку на лидерку в группе ВК. /info")
+					sampSendChat("/pm "..idp.." РћСЃС‚Р°РІСЊС‚Рµ Р·Р°СЏРІРєСѓ РЅР° Р»РёРґРµСЂРєСѓ РІ РіСЂСѓРїРїРµ Р’Рљ. /info")
 				end)
 			end
 			if ida == "2" then
 				lua_thread.create(function()
-					sampSendChat("/pm "..idp.." Админку можно получить отстояв лидерку или купив через /adm")
+					sampSendChat("/pm "..idp.." РђРґРјРёРЅРєСѓ РјРѕР¶РЅРѕ РїРѕР»СѓС‡РёС‚СЊ РѕС‚СЃС‚РѕСЏРІ Р»РёРґРµСЂРєСѓ РёР»Рё РєСѓРїРёРІ С‡РµСЂРµР· /adm")
 				end)
 			end
 			if ida == "3" then
 				lua_thread.create(function()
-					sampSendChat("/pm "..idp.." Не выдаем, купите их в автошколе.")
+					sampSendChat("/pm "..idp.." РќРµ РІС‹РґР°РµРј, РєСѓРїРёС‚Рµ РёС… РІ Р°РІС‚РѕС€РєРѕР»Рµ.")
 				end)
 			end
 			if ida == "4" then
 				lua_thread.create(function()
-					sampSendChat("/pm "..idp.." Не выдаем.")
+					sampSendChat("/pm "..idp.." РќРµ РІС‹РґР°РµРј.")
 				end)
 			end
 			if ida == "5" then
 				lua_thread.create(function()
-					sampSendChat("/pm "..idp.." Не снимаем.")
+					sampSendChat("/pm "..idp.." РќРµ СЃРЅРёРјР°РµРј.")
 				end)
 			end
 			if ida == "6" then
 				lua_thread.create(function()
-					sampSendChat("/pm "..idp.." Не телепортируем.")
+					sampSendChat("/pm "..idp.." РќРµ С‚РµР»РµРїРѕСЂС‚РёСЂСѓРµРј.")
 				end)
 			end
 			if ida == "7" then
 				lua_thread.create(function()
-					sampSendChat("/pm "..idp.." Цель? Суть? Уточните в репорт.")
+					sampSendChat("/pm "..idp.." Р¦РµР»СЊ? РЎСѓС‚СЊ? РЈС‚РѕС‡РЅРёС‚Рµ РІ СЂРµРїРѕСЂС‚.")
 				end)
 			end
 			if ida == "49" then
 				lua_thread.create(function()
-					sampSendChat("/pm "..idp.." Напишите жалобу в группе ВК. /info")
+					sampSendChat("/pm "..idp.." РќР°РїРёС€РёС‚Рµ Р¶Р°Р»РѕР±Сѓ РІ РіСЂСѓРїРїРµ Р’Рљ. /info")
 			   end)
 		   end
 			if ida == "50" then
@@ -540,38 +540,38 @@ function fpm(args)
 			 end
 			 if ida == "51" then
 			 	lua_thread.create(function()
-			 		sampSendChat("/pm "..idp.." Нарушений со стороны предполгаемого нарушителя не обнаружил.")
+			 		sampSendChat("/pm "..idp.." РќР°СЂСѓС€РµРЅРёР№ СЃРѕ СЃС‚РѕСЂРѕРЅС‹ РїСЂРµРґРїРѕР»РіР°РµРјРѕРіРѕ РЅР°СЂСѓС€РёС‚РµР»СЏ РЅРµ РѕР±РЅР°СЂСѓР¶РёР».")
 					wait(1000)
 					sampSendChat("gg "..idp)
 				end)
 			end
 	else
-		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Вы не авторизированы как администратор. Доступ к командам скрипта заблокирован!", -1)
+		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Р’С‹ РЅРµ Р°РІС‚РѕСЂРёР·РёСЂРѕРІР°РЅС‹ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ. Р”РѕСЃС‚СѓРї Рє РєРѕРјР°РЅРґР°Рј СЃРєСЂРёРїС‚Р° Р·Р°Р±Р»РѕРєРёСЂРѕРІР°РЅ!", -1)
 	end
 end
 
--- function aint(arg) -- TODO: реализовать телепорт по интерьерам
+-- function aint(arg) -- TODO: СЂРµР°Р»РёР·РѕРІР°С‚СЊ С‚РµР»РµРїРѕСЂС‚ РїРѕ РёРЅС‚РµСЂСЊРµСЂР°Рј
 -- 	local currentInterior = getCharActiveInterior(PLAYER_PED)
 -- 	if arg == nil or arg == "" then
--- 		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}/aint [айди интерьера]", -1)
+-- 		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}/aint [Р°Р№РґРё РёРЅС‚РµСЂСЊРµСЂР°]", -1)
 -- 		if debug == true then
--- 			sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Айди всех интерьеров можно узнать командой /intids", -1)
+-- 			sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}РђР№РґРё РІСЃРµС… РёРЅС‚РµСЂСЊРµСЂРѕРІ РјРѕР¶РЅРѕ СѓР·РЅР°С‚СЊ РєРѕРјР°РЅРґРѕР№ /intids", -1)
 -- 		end
 -- 		return false
 -- 	end
 -- 	setCharInterior(PLAYER_PED, arg)
 -- 	if currentInterior == arg then
--- 		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Вы были перемещены в интерьер под айди  "..currentInterior.."!", -1)
+-- 		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Р’С‹ Р±С‹Р»Рё РїРµСЂРµРјРµС‰РµРЅС‹ РІ РёРЅС‚РµСЂСЊРµСЂ РїРѕРґ Р°Р№РґРё  "..currentInterior.."!", -1)
 -- 	else
--- 		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Интерьер под айди "..currentInterior.." не обнаружен!", -1)
+-- 		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}РРЅС‚РµСЂСЊРµСЂ РїРѕРґ Р°Р№РґРё "..currentInterior.." РЅРµ РѕР±РЅР°СЂСѓР¶РµРЅ!", -1)
 -- 	end
 -- end
 
 function mpids()
 	if auth == true then
-			sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}1 - русская рулетка, 2 - король дигла, 3 - дерби, 4 - прятки на корабле.", -1)
+			sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}1 - СЂСѓСЃСЃРєР°СЏ СЂСѓР»РµС‚РєР°, 2 - РєРѕСЂРѕР»СЊ РґРёРіР»Р°, 3 - РґРµСЂР±Рё, 4 - РїСЂСЏС‚РєРё РЅР° РєРѕСЂР°Р±Р»Рµ.", -1)
 		else
-			sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Вы не авторизированы как администратор. Доступ к командам скрипта заблокирован!", -1)
+			sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Р’С‹ РЅРµ Р°РІС‚РѕСЂРёР·РёСЂРѕРІР°РЅС‹ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ. Р”РѕСЃС‚СѓРї Рє РєРѕРјР°РЅРґР°Рј СЃРєСЂРёРїС‚Р° Р·Р°Р±Р»РѕРєРёСЂРѕРІР°РЅ!", -1)
 		end
 end
 
@@ -579,164 +579,164 @@ function admp(params)
 	local id, prize = string.match(params, "(%d+) (.+)")
 	if auth == true then
 		if id == nil or prize == "" then
-			sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}/admp [id мероприятия] [приз]", -1)
-			sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}ID мероприятий можно узнать через /mpids", -1)
+			sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}/admp [id РјРµСЂРѕРїСЂРёСЏС‚РёСЏ] [РїСЂРёР·]", -1)
+			sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}ID РјРµСЂРѕРїСЂРёСЏС‚РёР№ РјРѕР¶РЅРѕ СѓР·РЅР°С‚СЊ С‡РµСЂРµР· /mpids", -1)
 		end
 		if id ~= nil and prize ~= "" then
 			if id == "1" then
 				lua_thread.create(function()
-					sampSendChat("/aad [MP] Русская Рулетка || Приз: "..prize.." | Для участия — /mpe")
+					sampSendChat("/aad [MP] Р СѓСЃСЃРєР°СЏ Р СѓР»РµС‚РєР° || РџСЂРёР·: "..prize.." | Р”Р»СЏ СѓС‡Р°СЃС‚РёСЏ вЂ” /mpe")
 				end)
 			end
 			if id == "2" then
 				lua_thread.create(function()
-					sampSendChat("/aad [MP] Король дигла || Приз: "..prize.." | Для участия — /mpe")
+					sampSendChat("/aad [MP] РљРѕСЂРѕР»СЊ РґРёРіР»Р° || РџСЂРёР·: "..prize.." | Р”Р»СЏ СѓС‡Р°СЃС‚РёСЏ вЂ” /mpe")
 				end)
 			end
 			if id == "3" then
 				lua_thread.create(function()
-					sampSendChat("/aad [MP] Дерби || Приз: "..prize.." | Для участия — /mpe")
+					sampSendChat("/aad [MP] Р”РµСЂР±Рё || РџСЂРёР·: "..prize.." | Р”Р»СЏ СѓС‡Р°СЃС‚РёСЏ вЂ” /mpe")
 				end)
 			end
 			if id == "4" then
 				lua_thread.create(function()
-					sampSendChat("/aad [MP] Прятки на корабле || Приз: "..prize.." | Для участия — /mpe")
+					sampSendChat("/aad [MP] РџСЂСЏС‚РєРё РЅР° РєРѕСЂР°Р±Р»Рµ || РџСЂРёР·: "..prize.." | Р”Р»СЏ СѓС‡Р°СЃС‚РёСЏ вЂ” /mpe")
 				end)
 			end
 		end
 	else
-		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Вы не авторизированы как администратор. Доступ к командам скрипта заблокирован!", -1)
+		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Р’С‹ РЅРµ Р°РІС‚РѕСЂРёР·РёСЂРѕРІР°РЅС‹ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ. Р”РѕСЃС‚СѓРї Рє РєРѕРјР°РЅРґР°Рј СЃРєСЂРёРїС‚Р° Р·Р°Р±Р»РѕРєРёСЂРѕРІР°РЅ!", -1)
 	end
 end
 
 function mpoff()
 	if auth == true then
 		lua_thread.create(function()
-			sampSendChat("/aad [MP] Закрываю телепорт через 15 секунд!")
+			sampSendChat("/aad [MP] Р—Р°РєСЂС‹РІР°СЋ С‚РµР»РµРїРѕСЂС‚ С‡РµСЂРµР· 15 СЃРµРєСѓРЅРґ!")
 			wait(15000)
-			sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}15 секунд прошло, закрывайте телепорт!", -1)
+			sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}15 СЃРµРєСѓРЅРґ РїСЂРѕС€Р»Рѕ, Р·Р°РєСЂС‹РІР°Р№С‚Рµ С‚РµР»РµРїРѕСЂС‚!", -1)
 			sampSendChat("/mp")
 			-- function sampev.onShowDialog(id, style, title, button1, button2, text)
-			-- 	if title:find('Создание МП') then
-			-- 		sampSendDialogResponse(5999, 0, 1, nil) -- TODO: сделать автозакрытие телепорта на мп
+			-- 	if title:find('РЎРѕР·РґР°РЅРёРµ РњРџ') then
+			-- 		sampSendDialogResponse(5999, 0, 1, nil) -- TODO: СЃРґРµР»Р°С‚СЊ Р°РІС‚РѕР·Р°РєСЂС‹С‚РёРµ С‚РµР»РµРїРѕСЂС‚Р° РЅР° РјРї
 			-- 	end
 			-- end
 			-- wait(2000)
-			-- sampSendChat("/aad [MP] Телепорт закрыт!")
+			-- sampSendChat("/aad [MP] РўРµР»РµРїРѕСЂС‚ Р·Р°РєСЂС‹С‚!")
 			-- wait(1000)
-			-- sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Не забудьте сделать скриншот!", -1)
+			-- sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}РќРµ Р·Р°Р±СѓРґСЊС‚Рµ СЃРґРµР»Р°С‚СЊ СЃРєСЂРёРЅС€РѕС‚!", -1)
 			-- sampSendChat("/time")
 			-- wait(1500)
-			-- sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Начинайте проводить мп, /mp - настройки мп, /imp - зачитать правила!", -1)
+			-- sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}РќР°С‡РёРЅР°Р№С‚Рµ РїСЂРѕРІРѕРґРёС‚СЊ РјРї, /mp - РЅР°СЃС‚СЂРѕР№РєРё РјРї, /imp - Р·Р°С‡РёС‚Р°С‚СЊ РїСЂР°РІРёР»Р°!", -1)
 		end)
 	else
-		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Вы не авторизированы как администратор. Доступ к командам скрипта заблокирован!", -1)
+		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Р’С‹ РЅРµ Р°РІС‚РѕСЂРёР·РёСЂРѕРІР°РЅС‹ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ. Р”РѕСЃС‚СѓРї Рє РєРѕРјР°РЅРґР°Рј СЃРєСЂРёРїС‚Р° Р·Р°Р±Р»РѕРєРёСЂРѕРІР°РЅ!", -1)
 	end
 end
 
 function imp(arg)
 	if auth == true then
 		if arg == nil or arg == "" then
-			sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}/imp [id мероприятия]", -1)
-			sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}ID мероприятий можно узнать через /mpids", -1)
+			sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}/imp [id РјРµСЂРѕРїСЂРёСЏС‚РёСЏ]", -1)
+			sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}ID РјРµСЂРѕРїСЂРёСЏС‚РёР№ РјРѕР¶РЅРѕ СѓР·РЅР°С‚СЊ С‡РµСЂРµР· /mpids", -1)
 		end
 		if arg ~= nil or "" then
 			if arg == "1" then
 				lua_thread.create(function()
-					sampSendChat("/mpinfo ПРАВИЛА:")
+					sampSendChat("/mpinfo РџР РђР’РР›Рђ:")
 					wait(1000)
-					sampSendChat("/mpinfo ЕСЛИ В /TRY ВЫПАДЕТ НЕУДАЧНО - НЕ СТРЕЛЯЮ ПО ВАМ.")
+					sampSendChat("/mpinfo Р•РЎР›Р Р’ /TRY Р’Р«РџРђР”Р•Рў РќР•РЈР”РђР§РќРћ - РќР• РЎРўР Р•Р›РЇР® РџРћ Р’РђРњ.")
 					wait(1000)
-					sampSendChat("/mpinfo ЕСЛИ В /TRY ВЫПАДЕТ УДАЧНО - СТРЕЛЯЮ ПО ВАМ.")
+					sampSendChat("/mpinfo Р•РЎР›Р Р’ /TRY Р’Р«РџРђР”Р•Рў РЈР”РђР§РќРћ - РЎРўР Р•Р›РЇР® РџРћ Р’РђРњ.")
 					wait(1000)
-					sampSendChat("/mpinfo ВЫХОД ИЗ СТРОЯ = SPAWN | FLOOD = MUTE")
+					sampSendChat("/mpinfo Р’Р«РҐРћР” РР— РЎРўР РћРЇ = SPAWN | FLOOD = MUTE")
 					wait(1000)
-					sampSendChat("/mpinfo ВЫХОД ИЗ СТРОЯ = SPAWN | FLOOD = MUTE")
+					sampSendChat("/mpinfo Р’Р«РҐРћР” РР— РЎРўР РћРЇ = SPAWN | FLOOD = MUTE")
 					wait(1000)
-					sampSendChat("/mpinfo ИГРАЕМ НА КИЛЛ ИЛИ ВЫСТРЕЛ?")
+					sampSendChat("/mpinfo РР“Р РђР•Рњ РќРђ РљРР›Р› РР›Р Р’Р«РЎРўР Р•Р›?")
 					wait(1000)
-					sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Выбирайте то, чего больше. Ответ напишите в /mpinfo!", -1)
+					sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Р’С‹Р±РёСЂР°Р№С‚Рµ С‚Рѕ, С‡РµРіРѕ Р±РѕР»СЊС€Рµ. РћС‚РІРµС‚ РЅР°РїРёС€РёС‚Рµ РІ /mpinfo!", -1)
 				end)
 			end
 			if arg == "2" then
 				lua_thread.create(function()
-					sampSendChat("/mpinfo ПРАВИЛА:")
+					sampSendChat("/mpinfo РџР РђР’РР›Рђ:")
 					wait(1000)
-					sampSendChat("/mpinfo Я ВЫЗЫВАЮ ДВУХ ИЗ ВАС НА ДУЭЛЬ МЕЖДУ ВАМИ.")
+					sampSendChat("/mpinfo РЇ Р’Р«Р—Р«Р’РђР® Р”Р’РЈРҐ РР— Р’РђРЎ РќРђ Р”РЈР­Р›Р¬ РњР•Р–Р”РЈ Р’РђРњР.")
 					wait(1000)
-					sampSendChat("/mpinfo ПОСЛЕ ОТСЧЕТА ВЫ НАЧИНАЕТЕ ОГОНЬ ДРУГ ПО ДРУГУ.")
+					sampSendChat("/mpinfo РџРћРЎР›Р• РћРўРЎР§Р•РўРђ Р’Р« РќРђР§РРќРђР•РўР• РћР“РћРќР¬ Р”Р РЈР“ РџРћ Р”Р РЈР“РЈ.")
 					wait(1000)
-					sampSendChat("/mpinfo КТО НАЧИНАЕТ ОГОНЬ РАНЕЕ ОКОНЧАНИЯ ТАЙМЕРА = SPAWN")
+					sampSendChat("/mpinfo РљРўРћ РќРђР§РРќРђР•Рў РћР“РћРќР¬ Р РђРќР•Р• РћРљРћРќР§РђРќРРЇ РўРђР™РњР•Р Рђ = SPAWN")
 					wait(1000)
-					sampSendChat("/mpinfo КТО ПОБЕЖДАЕТ - ОТХОДИТ В СТОРОНУ И ЖДЕТ СВОЕЙ ОЧЕРЕДИ!")
+					sampSendChat("/mpinfo РљРўРћ РџРћР‘Р•Р–Р”РђР•Рў - РћРўРҐРћР”РРў Р’ РЎРўРћР РћРќРЈ Р Р–Р”Р•Рў РЎР’РћР•Р™ РћР§Р•Р Р•Р”Р!")
 					wait(1000)
-					sampSendChat("/mpinfo +С = SPAWN | FLOOD = MUTE | СТРЕЛЬБА БЕЗ КОМАНДЫ = SPAWN!")
+					sampSendChat("/mpinfo +РЎ = SPAWN | FLOOD = MUTE | РЎРўР Р•Р›Р¬Р‘Рђ Р‘Р•Р— РљРћРњРђРќР”Р« = SPAWN!")
 					wait(1000)
-					sampSendChat("/mpinfo СРЫВ МП = WARN!")
+					sampSendChat("/mpinfo РЎР Р«Р’ РњРџ = WARN!")
 					wait(1000)
-					sampSendChat("/mpinfo ВСЕМ ВСЁ ПОНЯТНО?")
+					sampSendChat("/mpinfo Р’РЎР•Рњ Р’РЎРЃ РџРћРќРЇРўРќРћ?")
 					wait(1000)
-					sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Правила зачитаны, начинайте проводить мп!", -1)
+					sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}РџСЂР°РІРёР»Р° Р·Р°С‡РёС‚Р°РЅС‹, РЅР°С‡РёРЅР°Р№С‚Рµ РїСЂРѕРІРѕРґРёС‚СЊ РјРї!", -1)
 				end)
 			end
 			if arg == "3" then
 				lua_thread.create(function()
-					sampSendChat("/mpinfo ПРАВИЛА:")
+					sampSendChat("/mpinfo РџР РђР’РР›Рђ:")
 					wait(1000)
-					sampSendChat("/mpinfo ВЫ САДИТЕСЬ В МАШИНЫ И ЕЗДИТЕ ПО ПОЛИГОНУ ..")
+					sampSendChat("/mpinfo Р’Р« РЎРђР”РРўР•РЎР¬ Р’ РњРђРЁРРќР« Р Р•Р—Р”РРўР• РџРћ РџРћР›РР“РћРќРЈ ..")
 					wait(1000)
-					sampSendChat("/mpinfo .. НЕ ПОПАДАЯ ПОД РАКЕТЫ РПГ.")
+					sampSendChat("/mpinfo .. РќР• РџРћРџРђР”РђРЇ РџРћР” Р РђРљР•РўР« Р РџР“.")
 					wait(1000)
-					sampSendChat("/mpinfo БОРТИКИ = SPAWN | СМЕНА МАШИН = SPAWN!")
+					sampSendChat("/mpinfo Р‘РћР РўРРљР = SPAWN | РЎРњР•РќРђ РњРђРЁРРќ = SPAWN!")
 					wait(1000)
-					sampSendChat("/mpinfo СРЫВ МП = WARN!")
+					sampSendChat("/mpinfo РЎР Р«Р’ РњРџ = WARN!")
 					wait(1000)
-					sampSendChat("/mpinfo РАЗЬЕХАЛИСЬ, СТРЕЛЯЕМ ИЗ РПГ ЧЕРЕЗ 2 МИНУТЫ!")
+					sampSendChat("/mpinfo Р РђР—Р¬Р•РҐРђР›РРЎР¬, РЎРўР Р•Р›РЇР•Рњ РР— Р РџР“ Р§Р•Р Р•Р— 2 РњРРќРЈРўР«!")
 					wait(1000)
-					sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Правила зачитаны, начинайте стрелять через 2 минуты!", -1)
+					sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}РџСЂР°РІРёР»Р° Р·Р°С‡РёС‚Р°РЅС‹, РЅР°С‡РёРЅР°Р№С‚Рµ СЃС‚СЂРµР»СЏС‚СЊ С‡РµСЂРµР· 2 РјРёРЅСѓС‚С‹!", -1)
 				end)
 			end
 			if arg == "4" then
 				lua_thread.create(function()
-					sampSendChat("/mpinfo ПРАВИЛА:")
+					sampSendChat("/mpinfo РџР РђР’РР›Рђ:")
 					wait(1000)
-					sampSendChat("/mpinfo ЕСЛИ УПАЛИ ЗА БОРТ СООБЩАЕТЕ В /rep")
+					sampSendChat("/mpinfo Р•РЎР›Р РЈРџРђР›Р Р—Рђ Р‘РћР Рў РЎРћРћР‘Р©РђР•РўР• Р’ /rep")
 					wait(1000)
-					sampSendChat("/mpinfo АНИМКИ РАЗРЕШЕНЫ")
+					sampSendChat("/mpinfo РђРќРРњРљР Р РђР—Р Р•РЁР•РќР«")
 					wait(1000)
-					sampSendChat("/mpinfo ЗАПРЕЩЕНО ЗАЛЕЗАТЬ В СТЕНЫ С ПОМОЩЬЮ АНИМОК = SPAWN")
+					sampSendChat("/mpinfo Р—РђРџР Р•Р©Р•РќРћ Р—РђР›Р•Р—РђРўР¬ Р’ РЎРўР•РќР« РЎ РџРћРњРћР©Р¬Р® РђРќРРњРћРљ = SPAWN")
 					wait(1000)
-					sampSendChat("/mpinfo РАЗБЕЖАЛИСЬ, ИЩЕМ ЧЕРЕЗ 5 МИНУТ!")
+					sampSendChat("/mpinfo Р РђР—Р‘Р•Р–РђР›РРЎР¬, РР©Р•Рњ Р§Р•Р Р•Р— 5 РњРРќРЈРў!")
 					wait(1000)
-					sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Начинайте искать через 5 минут!", -1)
+					sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}РќР°С‡РёРЅР°Р№С‚Рµ РёСЃРєР°С‚СЊ С‡РµСЂРµР· 5 РјРёРЅСѓС‚!", -1)
 					sampSendChat("/time")
 				end)
 			end
 			if arg == "5" then
 				if debug == true then
 					lua_thread.create(function()
-						sampSendChat("/mpinfo ПРАВИЛА:")
+						sampSendChat("/mpinfo РџР РђР’РР›Рђ:")
 						wait(1000)
-						sampSendChat("/mpinfo Я ПИШУ ЛЮБОЙ ТЕКСТ, ВОЗМОЖНО СТРАННЫЙ")
+						sampSendChat("/mpinfo РЇ РџРРЁРЈ Р›Р®Р‘РћР™ РўР•РљРЎРў, Р’РћР—РњРћР–РќРћ РЎРўР РђРќРќР«Р™")
 						wait(1000)
-						sampSendChat("/mpinfo ВЫ ЕГО ДОЛЖНЫ ПЕРЕПИСАТЬ В ЧАТ И ОТПРАВИТЬ")
+						sampSendChat("/mpinfo Р’Р« Р•Р“Рћ Р”РћР›Р–РќР« РџР•Р Р•РџРРЎРђРўР¬ Р’ Р§РђРў Р РћРўРџР РђР’РРўР¬")
 						wait(1000)
-						sampSendChat("/mpinfo ЕСЛИ ВЫ ПЕРВЫЕ ПЕРЕПИСАЛИ ТЕКСТ И ОТПРАВИЛИ, ..")
+						sampSendChat("/mpinfo Р•РЎР›Р Р’Р« РџР•Р Р’Р«Р• РџР•Р Р•РџРРЎРђР›Р РўР•РљРЎРў Р РћРўРџР РђР’РР›Р, ..")
 						wait(1000)
-						sampSendChat("/mpinfo .. ТО ВЫ ВЫБИРАЕТЕ КОГО ХОТИТЕ УБИТЬ")
+						sampSendChat("/mpinfo .. РўРћ Р’Р« Р’Р«Р‘РР РђР•РўР• РљРћР“Рћ РҐРћРўРРўР• РЈР‘РРўР¬")
 						wait(1000)
-						sampSendChat("/mpinfo КЛЕО ПОВТОРЕНИЕ = SPAWN || MUTE = SPAWN || СРЫВ МП = WARN!")
+						sampSendChat("/mpinfo РљР›Р•Рћ РџРћР’РўРћР Р•РќРР• = SPAWN || MUTE = SPAWN || РЎР Р«Р’ РњРџ = WARN!")
 						wait(1000)
 						sampSendChat("/mpinfo FLOOD = MUTE!")
-						sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Начинайте проводить мп!", -1)
+						sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}РќР°С‡РёРЅР°Р№С‚Рµ РїСЂРѕРІРѕРґРёС‚СЊ РјРї!", -1)
 						sampSendChat("/time")
 					end)
 				else
-					sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Данная функция в разработке и доступна только с дебаг билдом!", -1)
+					sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Р”Р°РЅРЅР°СЏ С„СѓРЅРєС†РёСЏ РІ СЂР°Р·СЂР°Р±РѕС‚РєРµ Рё РґРѕСЃС‚СѓРїРЅР° С‚РѕР»СЊРєРѕ СЃ РґРµР±Р°Рі Р±РёР»РґРѕРј!", -1)
 				end
 			end
 		end
 	else
-		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Вы не авторизированы как администратор. Доступ к командам скрипта заблокирован!", -1)
+		sampAddChatMessage("{ff8c00}[AdminsHelper] {ffffff}Р’С‹ РЅРµ Р°РІС‚РѕСЂРёР·РёСЂРѕРІР°РЅС‹ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ. Р”РѕСЃС‚СѓРї Рє РєРѕРјР°РЅРґР°Рј СЃРєСЂРёРїС‚Р° Р·Р°Р±Р»РѕРєРёСЂРѕРІР°РЅ!", -1)
 	end
 end
